@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trading-analysis"
+version = "0.1.0"
+description = "工具函数与脚本：拉取指定股票在指定时间区间内的走势数据并保存到本地。"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "trading-analysis maintainers" }]
+dependencies = [
+    "yfinance>=0.2.33",
+    "pandas>=2.2.3",
+    "python-dateutil>=2.9.0",
+]
+
+[project.scripts]
+fetch-stock-data = "trading_analysis.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
